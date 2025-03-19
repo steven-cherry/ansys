@@ -42,8 +42,3 @@ variable "ec2_type" {
   type    = string
   default = "t3.nano"
 }
-
-variable "ec2_subnet" {
-  type    = string
-  default = ""
-}
