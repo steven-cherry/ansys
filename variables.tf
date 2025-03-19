@@ -32,3 +32,18 @@ variable "subnet_cidr_c_public" {
   type    = string
   default = "10.0.160.0/20"
 }
+
+variable "ec2_ami" {
+  type    = string
+  default = "ami-00197ee5a9721f36b"
+}
+
+variable "ec2_type" {
+  type    = string
+  default = "t3.nano"
+}
+
+variable "ec2_subnet" {
+  type    = string
+  default = ""
+}

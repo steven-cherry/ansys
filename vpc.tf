@@ -42,3 +42,8 @@ resource "aws_subnet" "c_public" {
   cidr_block              = var.subnet_cidr_c_public
   map_public_ip_on_launch = true
 }
+
+resource "random_shuffle" "public_subnets" {
+  input        = [aws_subnet.a_public.id, aws_subnet.b_public.id, aws_subnet.c_public.id]
+  result_count = 1
+}
