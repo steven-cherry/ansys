@@ -43,6 +43,12 @@ resource "aws_subnet" "c_public" {
   map_public_ip_on_launch = true
 }
 
+resource "aws_route" "default_route" {
+  route_table_id         = aws_vpc.vpc.main_route_table_id
+  destination_cidr_block = "0.0.0.0/0"
+  gateway_id             = aws_internet_gateway.internet_gateway.id
+}
+
 resource "random_shuffle" "public_subnets" {
   input        = [aws_subnet.a_public.id, aws_subnet.b_public.id, aws_subnet.c_public.id]
   result_count = 1
