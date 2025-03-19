@@ -1,7 +1,9 @@
 resource "aws_vpc" "vpc" {
   cidr_block = var.vpc_cidr_block
 }
-
+resource "aws_internet_gateway" "internet_gateway" {
+  vpc_id = aws_vpc.vpc.id
+}
 resource "aws_subnet" "a_private" {
   availability_zone = data.aws_availability_zones.available.names[0]
   vpc_id            = aws_vpc.vpc.id
